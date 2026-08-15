@@ -10,6 +10,7 @@ class Model:
         self.learning_rate = 0.0001 #Ive come to know that if too high the model explodes
 
     #Trains the model using the following pipeline: generates y_hat array -> calculate gradients -> adjust weights and bias -> repeat
+    #Training uses batch gradient descent
     def train(self, epochs, X1_train, X2_train, Y_train):
         for x in range(epochs):
             self.predict(X1_train, X2_train)
@@ -39,6 +40,7 @@ class Model:
     #    loss_function = loss_function / len(Y_train)
     #    return loss_function
 
+    #I used MSE for the loss function
     def gradient_W1(self, Y_train, X1_train):
         grad = 0
         for index, y_true in enumerate(Y_train):
