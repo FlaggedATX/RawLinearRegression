@@ -2,12 +2,12 @@ from dataset import make_df
 from model import Model
 
 def main():
-    df_train = make_df()
+    df_train = make_df(0, 100, 1000)
     X1_train = df_train["X1"]
     X2_train = df_train["X2"]
     Y_train = df_train["Y"]
 
-    df_test = make_df()
+    df_test = make_df(0, 100, 1000)
     X1_test = df_test["X1"]
     X2_test = df_test["X2"]
     Y_test = df_test["Y"]

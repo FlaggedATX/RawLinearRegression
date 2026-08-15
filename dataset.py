@@ -1,7 +1,7 @@
 import numpy as np
 
 
-def make_df():
+def make_df(low=0, high=101, size=1000):
     rng = np.random.default_rng(seed=None) #Only instance of an outside library being used
     #Here I use a dictionary to mimic the structure of a dataframe
     df = {
@@ -9,9 +9,9 @@ def make_df():
         "X2": [],
         "Y": [],
     }
+    X1_array = rng.integers(low=low, high=high, size=size)
+    X2_array = rng.integers(low=low, high=high, size=size)
 
-    X1_array = rng.integers(low=0, high=101, size=1000)
-    X2_array = rng.integers(low=0, high=101, size=1000)
     Y_array = []
 
     for index, X1 in enumerate(X1_array):
