@@ -75,7 +75,9 @@ class Model:
 
         for index, i in enumerate(temp_y_hat):
             z = Y_test[index]
-            if abs(i - z) < 0.01: #Accuracy parameter as numbers will hardly be EXACTLY the same
+            # It is of note that this varies so much with the size of the numbers on the dataset cause as they grow the small differences become bigger nuking this stat
+            #A better metric is to be implemented
+            if abs(i - z) < 0.01:
                 count += 1
         accuracy = (count / len(X1_test)) * 100
         return accuracy
