@@ -65,7 +65,7 @@ class Model:
         grad = (grad * 2) / len(Y_train)
         return grad
 
-    def accuracy(self, X1_test, X2_test, Y_test):
+    def accuracy(self, X1_test, X2_test, Y_test, difference=0.01):
 
         temp_y_hat = []
         count = 0
@@ -77,7 +77,7 @@ class Model:
             z = Y_test[index]
             # It is of note that this varies so much with the size of the numbers on the dataset cause as they grow the small differences become bigger nuking this stat
             #A better metric is to be implemented
-            if abs(i - z) < 0.01:
+            if abs(i - z) < difference:
                 count += 1
         accuracy = (count / len(X1_test)) * 100
         return accuracy
