@@ -9,8 +9,15 @@ class Model:
 
         self.learning_rate = 0.0001 #Ive come to know that if too high the model explodes
 
+    def set_model_values(self, W1=0.0, W2=0.0, bias=0.0, learning_rate=0.0001):
+        self.W1 = W1
+        self.W2 = W2
+        self.bias = bias
+        self.learning_rate = learning_rate
+
     #Trains the model using the following pipeline: generates y_hat array -> calculate gradients -> adjust weights and bias -> repeat
     #Training uses batch gradient descent
+
     def train(self, epochs, X1_train, X2_train, Y_train):
         for x in range(epochs):
             self.predict(X1_train, X2_train)
