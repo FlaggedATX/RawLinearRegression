@@ -1,24 +1,19 @@
 import numpy as np
 
-
 def make_df(low=0, high=101, size=1000):
-    rng = np.random.default_rng(seed=None) #Only instance of an outside library being used
-    #Here I use a dictionary to mimic the structure of a dataframe
-    df = {
-        "X1": [],
-        "X2": [],
-        "Y": [],
-    }
+    rng = np.random.default_rng(seed=None)
+
     X1_array = rng.integers(low=low, high=high, size=size)
     X2_array = rng.integers(low=low, high=high, size=size)
+    X3_array = rng.integers(low=low, high=high, size=size)
+    X4_array = rng.integers(low=low, high=high, size=size)
 
-    Y_array = []
+    df = {"X": [], "Y": []}
 
-    for index, X1 in enumerate(X1_array):
-        value = X1 + X2_array[index]
-        Y_array.append(value)
-    df["X1"] = X1_array
-    df["X2"] = X2_array
-    df["Y"] = Y_array
+    for i in range(size):
+        row = [X1_array[i], X2_array[i], X3_array[i], X4_array[i]]
+        df["X"].append(row)
+        value = X1_array[i] + X2_array[i] - X3_array[i] + X4_array[i]
+        df["Y"].append(value)
 
     return df
