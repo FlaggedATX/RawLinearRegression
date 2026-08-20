@@ -1,4 +1,5 @@
-
+#OBS: This model now takes a list of lists as training data
+#The Y_train is still just a list
 
 class Model:
     def __init__(self):
