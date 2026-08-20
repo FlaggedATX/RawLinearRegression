@@ -1,28 +1,29 @@
 # RawLinearRegression
 
-A **linear regression model built from scratch in Python**.
-
-This is a learning project focused on understanding how linear regression works internally rather than using a machine learning library.
+A **linear regression model built from scratch in Python**. This is a learning project focused on understanding how linear regression works internally rather than using a machine learning library.
 
 ## What it does
 
-The model currently implements a two-feature linear regression:
+The model implements **n-feature linear regression**:
 
 ```text
-ŷ = W₁X₁ + W₂X₂ + b
+ŷ = W₁X₁ + W₂X₂ + ... + WₙXₙ + b
 ```
 
-Training is done manually using **gradient descent** and **Mean Squared Error (MSE)**.
-
-The gradients are:
+or equivalently, in vector form:
 
 ```text
-∂MSE/∂W₁ = (2/n) Σ(ŷ - y)X₁
-∂MSE/∂W₂ = (2/n) Σ(ŷ - y)X₂
+ŷ = W·X + b
+```
+
+Training is done manually using **gradient descent** and **Mean Squared Error (MSE)**. For a general feature `Xᵢ`, the gradients are:
+
+```text
+∂MSE/∂Wᵢ = (2/n) Σ(ŷ - y)Xᵢ
 ∂MSE/∂b  = (2/n) Σ(ŷ - y)
 ```
 
-No machine learning frameworks are used. NumPy is currently only used for generating datasets.
+No machine learning frameworks are used. NumPy is currently only used for generating datasets and performing vectorized weight/gradient operations.
 
 ## Current Experiment
 
@@ -44,11 +45,9 @@ The goal is to watch the model discover these values through gradient descent.
 
 ## What's Next?
 
-I plan to use the same model to experiment with different mathematical operations and see where linear regression succeeds and where it breaks down.
+I plan to use the same model to experiment with different mathematical operations, at varying feature counts, and see where linear regression succeeds and where it breaks down. Some planned experiments:
 
-Some planned experiments:
-
-* Addition (generalized to bigger numbers)
+* Addition (generalized to bigger numbers and more terms)
 * Multiplication
 * Binary arithmetic
 
@@ -69,5 +68,6 @@ RawLinearRegression/
 This is a learning project. The focus is on understanding the mathematics and mechanics of linear regression from the ground up.
 
 ## Requirements
+
 * Python 3
 * NumPy
