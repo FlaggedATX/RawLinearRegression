@@ -25,7 +25,7 @@ def plot_model(model, X_test, Y_test):
         color="#e74c3c",
         linestyle="--",
         linewidth=2,
-        label="Perfect prediction (100%)",
+        label="Perfect prediction",
     )
 
     plt.title("y_hat VS Y_train", fontsize=13, fontweight="bold")
