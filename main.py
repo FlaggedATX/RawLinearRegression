@@ -1,5 +1,6 @@
 from dataset import make_df
 from model import Model
+from graphic import plot_model
 
 def main():
     # make_def() parameters: low->lowest number used, high->one above the highest number used, size->number of samples
@@ -13,11 +14,13 @@ def main():
 
 
     LR = Model()
-    LR.set_model_values(X_train,learning_rate=0.0000001)
     LR.train(100000, X_train, Y_train)
-    LR.stats()
+    #plot_model(LR, X_test, Y_test)
+    #LR.stats()
     success_rate = LR.accuracy(X_test, Y_test)
     print("Success rate: ", success_rate, "%")
+
+
 
 if __name__ == "__main__":
     main()
