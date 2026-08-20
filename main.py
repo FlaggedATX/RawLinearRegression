@@ -14,9 +14,12 @@ def main():
 
 
     LR = Model()
+    #LR.set_model_values(X_train)
     LR.train(100000, X_train, Y_train)
+
+
     #plot_model(LR, X_test, Y_test)
-    #LR.stats()
+    LR.stats()
     success_rate = LR.accuracy(X_test, Y_test)
     print("Success rate: ", success_rate, "%")
 

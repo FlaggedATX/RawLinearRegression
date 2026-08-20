@@ -13,17 +13,19 @@ class Model:
         self.W = []
         self.gradient_W = []
         self.bias = 0.0
-        self.learning_rate = 0.0001 #Ive come to know that if too high the model explodes
+        self.learning_rate = 0.0000001 #Ive come to know that if too high the model explodes
 
-    def set_model_values(self,X_train, weight = 0, bias=0.0, learning_rate=0.0001):
-        for i in range(len(X_train[0])):
-            self.W.append(weight)
+    def set_model_values(self,X_train, weight = 0, bias=0.0, learning_rate=0.0000001):
+        self.W = [weight] * len(X_train[0])
         self.bias = bias
         self.learning_rate = learning_rate
 
     #Trains the model using the following pipeline: generates y_hat array -> calculate gradients -> adjust weights and bias -> repeat
     #Training uses batch gradient descent
     def train(self, epochs, X_train, Y_train):
+        if len(self.W) != len(X_train[0]):
+            self.set_model_values(X_train)
+
         for x in range(epochs):
             self.predict(X_train)
             self.calc_gradient_W(Y_train, X_train)
