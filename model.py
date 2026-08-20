@@ -1,4 +1,10 @@
 #OBS: This model now takes a list of lists as training data
+#X_train
+    #[
+    #    [x11, x12, x13], < - sample
+    #   [x21, x22, x23], < - sample
+    #   [x31, x32, x33], < - sample
+    #]
 #The Y_train is still just a list
 
 class Model:
@@ -17,7 +23,6 @@ class Model:
 
     #Trains the model using the following pipeline: generates y_hat array -> calculate gradients -> adjust weights and bias -> repeat
     #Training uses batch gradient descent
-
     def train(self, epochs, X_train, Y_train):
         for x in range(epochs):
             self.predict(X_train)
@@ -28,12 +33,6 @@ class Model:
             self.bias = self.bias - self.learning_rate * gradient_bias
 
     #This method generates an array with the model's results
-    #X_train
-    #[
-    #    [x11, x12, x13], < - sample
-    #[x21, x22, x23], < - sample
-    #[x31, x32, x33], < - sample
-    #]
     def predict(self, X_train):
         self.y_hat = []
         for x in range(len(X_train)):
@@ -52,9 +51,6 @@ class Model:
                 grad += loss * X_train[sample][feature]
             grad = (grad * 2) / len(Y_train)
             self.gradient_W.append(grad)
-
-
-
 
     def calc_gradient_bias(self, Y_train):
         grad = 0
